@@ -7,5 +7,8 @@
  * we're updating and refactoring the code
  * we're training new models on up-to-date data
 
+ Known Issues:
+ * Extension doesn't save state when you unblock a url
+
 Original Project for Chrome: 
 https://github.com/yiransheng/content-aware-ad-blocker
