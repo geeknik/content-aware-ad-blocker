@@ -59,14 +59,14 @@
         });
     }
 
-    chrome.storage.sync.get(["urlSummaries", "urlWhitelist", "domainWhitelist"], (items) => {
+    browser.storage.sync.get(["urlSummaries", "urlWhitelist", "domainWhitelist"], (items) => {
         mergeSummaries(items.urlSummaries || {});
         mergeUrlWhitelist(items.urlWhitelist || {});
         mergeDomainWhitelist(items.domainWhitelist || {});
         console.log("Loaded data:", items);
     });
 
-    chrome.storage.onChanged.addListener((changes, namespace) => {
+    browser.storage.onChanged.addListener((changes, namespace) => {
         if (changes.urlSummaries) {
             mergeSummaries(changes.urlSummaries.newValue);
         }
@@ -381,7 +381,7 @@
         return html;
     }
 
-    chrome.webRequest.onBeforeRequest.addListener(function(details) {
+    browser.webRequest.onBeforeRequest.addListener(function(details) {
         if (details.type !== "script" || details.method !== "GET") {
             return;
         }
