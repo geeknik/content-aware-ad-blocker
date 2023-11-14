@@ -81,7 +81,7 @@
 
     function calcUpdateSummaries(tabId) {
         chrome.tabs.get(tabId, (tab) => {
-            if (tab.url && tabUrls[tabId] !== tab.url) {
+            if (tab && tab.url && tabUrls[tabId] !== tab.url) {
                 tabUrls[tabId] = tab.url;
             }
 
