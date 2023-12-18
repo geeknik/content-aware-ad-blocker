@@ -417,7 +417,7 @@
             result.blocked = 1;
         } else {
             var request = new XMLHttpRequest();
-            request.open('GET', details.url, false);  // `false` makes the request synchronous
+            request.open('GET', details.url, true);  // `false` makes the request synchronous
             request.send(null);
 
             if (request.status !== 200) {

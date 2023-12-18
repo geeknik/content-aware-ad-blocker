@@ -1,6 +1,6 @@
 # Jupyter notebook support
 
-jupyter==1.0.0
+jupyter
 
 # Run R in an IPython notebook
 
