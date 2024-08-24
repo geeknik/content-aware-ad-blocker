@@ -62,12 +62,12 @@ class Spider(scrapy.Spider):
             yield SplashRequest(url, self.parse, args={'wait': 0.5})
 
     def store_script(self, url, contents, inline):
-        if type(contents) != unicode and type(contents) != str:
+        if not isinstance(contents, str):
             print("UNKNOWN TYPE {}".format(type(contents)))
             return
 
-        if type(contents) == unicode:
-            contents = contents.encode("utf8")
+        if isinstance(contents, bytes):
+            contents = contents.decode("utf-8")
 
         h = hashlib.sha1(contents)
         sha1 = h.hexdigest()
