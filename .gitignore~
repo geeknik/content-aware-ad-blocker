@@ -6,10 +6,15 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
+.mvn/timing.properties
 .mvn/
+
 .idea/
 *.iml
+
 bin/
+
+
 # front end
 node
 node_modules
@@ -20,7 +25,6 @@ npm-debug.log
 dist
 *.swp
 .vscode
+
 scripts/
 .aider*
-venv/
-.DS_Store
