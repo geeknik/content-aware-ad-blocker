@@ -63,7 +63,7 @@ class Spider(scrapy.Spider):
 
     def store_script(self, url, contents, inline):
         if type(contents) != unicode and type(contents) != str:
-            print "UNKNOWN TYPE %s" % type(contents)
+            print("UNKNOWN TYPE {}".format(type(contents)))
             return
 
         if type(contents) == unicode:
@@ -71,7 +71,7 @@ class Spider(scrapy.Spider):
 
         h = hashlib.sha1(contents)
         sha1 = h.hexdigest()
-        print "SCRIPT %s SHA %s" % (url, sha1)
+        print("SCRIPT {} SHA {}".format(url, sha1))
 
         with open("/var/scripts/%s.js" % sha1, "w") as f:
             f.write(contents)
@@ -99,7 +99,7 @@ class Spider(scrapy.Spider):
                     url = response.urljoin(script_url)
                     #if url.startswith("//"):
                     #    url = "%s:%s" % (response.url.split(":")[0], url)
-                    print "FETCHING SCRIPT %s" % url
+                    print("FETCHING SCRIPT {}".format(url))
                     yield scrapy.Request(url, self.parse_script)
 
         seen_urls = []
@@ -111,7 +111,7 @@ class Spider(scrapy.Spider):
                 domain = self.get_domain(url)
 
                 if domain not in seen_domains:
-                    print "## NEW DOMAIN %s" % domain
+                    print("## NEW DOMAIN {}".format(domain))
                     new_urls.append(url)
                     seen_domains.add(domain)
                 else:
